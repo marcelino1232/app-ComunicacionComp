@@ -1,0 +1,61 @@
+<div class="container mt-3">
+    <div class="row mt-5 mb-md-3">
+        <div class="col-lg-6 ">
+            <div class="card">
+                <div class="card-header h3 text-center">
+                    {{titulo}}
+                </div>
+                <div class="card-body">
+                    <input type="hidden" [(ngModel)]="id" />
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label class="form-label ms-2">Descripcion</label>
+                            <input type="text" placeholder="Descripcion..." class="form-control"
+                                [(ngModel)]="descripcion">
+                        </div>
+                    </div>
+                    <div class="mb-3 d-flex justify-content-end">
+                        <button *ngIf="estado === false" class="btn btn-danger me-2"
+                            (click)="cambiarEstado()">Cancelar</button>
+                        <button class="btn btn-primary" (click)="hacerCambios()">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header h3 text-center">
+                    Listado de Sexo
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr class="h4">
+                                <th>#</th>
+                                <th>Descripcion</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center text-danger h5" *ngIf="listSexo.length === 0">
+                                <td colspan="3">No hay Datos Para Mostrar</td>
+                            </tr>
+                            <tr *ngFor="let item of listSexo; let i = index">
+                                <td>{{item.sexoId}}</td>
+                                <td>{{item.descripcion}}</td>
+                                <td>
+                                    <button class="btn btn-warning text-white me-2" (click)="MostrarSexo(item.sexoId)">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-danger text-white" (click)="EliminarSexo(i)">
+                                        <i class="fa-sharp fa-solid fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

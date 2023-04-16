@@ -1,0 +1,54 @@
+<div class="conteiner mt-5">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <div class="card-header d-flex d-flex justify-content-between">
+                    <span class="h3">
+                        Listado de Empleado
+                    </span>
+                    <button routerLink="/empleado/create" class="btn btn-primary">Agregar Empleado</button>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                           <th>#</th>
+                           <th>Legajo</th>
+                           <th>Nombre</th>
+                           <th>Apellido</th>
+                           <th>Sexo</th>
+                           <th>Salario</th>
+                           <th>
+                            Acciones
+                           </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                                <tr *ngIf="listEmpleado.length === 0">
+                                    <td  colspan="7" class="text-center text-danger">
+                                        No hay datos para mostrar
+                                    </td>
+                                </tr>
+                                <tr *ngFor="let empleado of listEmpleado; let i = index">
+                                    <td>{{empleado.empleadoId}}</td>
+                                    <td>{{empleado.legajo}}</td>
+                                    <td>{{empleado.nombre}}</td>
+                                    <td>{{empleado.apellido}}</td>
+                                    <td>{{empleado.sexoId}}</td>
+                                    <td>{{empleado.salario}}</td>
+                                    <td>
+                                        <button class="btn btn-warning text-white me-2" routerLink="/empleado/update/{{empleado.empleadoId}}">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </button>
+                                        <button class="btn btn-danger text-white" (click)="DeleteEmpleado(i)">
+                                            <i class="fa-sharp fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                               </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

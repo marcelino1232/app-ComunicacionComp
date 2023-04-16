@@ -1,0 +1,50 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-header h3 text-center">
+                    Actualizar Empleado
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label for="Legajo" class="form-label">Legajo</label>
+                                <input id="Legajo" type="number" class="form-control" [(ngModel)]="txtLegajo"
+                                    placeholder="Legajo...">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="Apellido" class="form-label">Apellido</label>
+                                <input id="Apellido" type="text" class="form-control" [(ngModel)]="txtApellido"
+                                    placeholder="Apellido...">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="Sexo" class="form-label">Sexo</label>
+                                <select name="" id="Sexo" class="form-select" [(ngModel)]="txtSexo">
+                                    <option *ngFor="let sexo of listSexo" value="{{sexo.sexoId}}">{{sexo.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label for="Nombre" class="form-label">Nombre</label>
+                                <input id="Nombre" type="text" class="form-control" [(ngModel)]="txtNombre"
+                                    placeholder="Nombre...">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="Salario" class="form-label">Salario</label>
+                                <input id="Salario" type="number" class="form-control" [(ngModel)]="txtSalario"
+                                    placeholder="Salario...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-end">
+                    <button class="btn btn-danger me-2" routerLink="/empleado">Cancelar</button>
+                    <button class="btn btn-success" (click)="UpdateEmpleado()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
